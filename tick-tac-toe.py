@@ -11,16 +11,21 @@ def main():
         rows = anwser(player,rows)
         player = playerswitch(player)
         win = checkrow(rows,win)
-        count += 1
+        count = count + 1
+        if count == 9:
+            win = "d"
     else:
         if win == "o":
+            table(rows)
             print()
             print("*** os win!! ***")
         elif win == "x":
+            table(rows)
             print()
             print("*** xs win!! ***")
-        if full == True:
-            print("Draw")
+        elif win == "d":
+            table(rows)
+            print("*** It is a draw ***")
 
 
 def anwser(player,rows):
@@ -28,7 +33,7 @@ def anwser(player,rows):
     valid = False
     anwser = input(f"It is {player}'s turn, plase pick the number of an open space: ")
     while valid == False:
-        if anwser == "1" or anwser == "2" or anwser == "3" or anwser == "4" or anwser == "5" or anwser == "6" or anwser == "7" or anwser == "9":
+        if anwser == "1" or anwser == "2" or anwser == "3" or anwser == "4" or anwser == "5" or anwser == "6" or anwser == "7" or anwser == "8" or anwser == "9":
             anwser = int(anwser) - 1
             if rows[anwser] == "x" or rows[anwser] == "o":
                 print ("that space has been selected")
